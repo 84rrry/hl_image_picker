@@ -41,7 +41,7 @@ class ImageFileCompressEngine(
                     height = maxHeight
                 }
 
-                context.contentResolver.openInputStream(uri).use { imageStream ->
+                context.contentResolver.openInputStream(uri)?.use { imageStream ->
                     val randomId = UUID.randomUUID().toString().substring(0, 10)
                     val fileName: String
                     val imageDirectory = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
@@ -65,7 +65,7 @@ class ImageFileCompressEngine(
 
                     val file = File(imageDirectory, fileName)
 
-                    context.contentResolver.openOutputStream(Uri.fromFile(file)).use { os ->
+                    context.contentResolver.openOutputStream(Uri.fromFile(file))?.use { os ->
                         val compressQuality = ((quality ?: 0.9) * 100).toInt()
                         bitmap.compress(compressFormat, compressQuality, os)
                     }
