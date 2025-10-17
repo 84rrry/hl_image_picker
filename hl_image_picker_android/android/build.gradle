@@ -29,7 +29,7 @@ android {
         namespace 'com.howl.hl_image_picker'
     }
     
-    compileSdkVersion 31
+    compileSdkVersion 36
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
